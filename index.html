@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <title>AXVRENOX - Premium Tech Solutions</title>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/jb.png" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/kk.png" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/vs.jpg" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/2.png" as="image">
+    
+    <style>
+        /* Critical CSS for instant rendering */
+        body{font-family:'Inter',sans-serif;background:#020617;color:#fff;margin:0;overflow-x:hidden}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .hero{min-height:100vh;display:flex;align-items:center;position:relative}
+        .hero-content{flex:1;max-width:600px}
+        .hero-title{font-size:3.5rem;font-weight:800;margin-bottom:1rem;background:linear-gradient(135deg,#a855f7,#ec4899,#06b6d4);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+        .hero-images{display:flex;gap:1rem;flex-wrap:wrap}
+        .hero-image-card{width:200px;height:150px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+        .hero-image-card img{width:100%;height:100%;object-fit:cover}
+        @media(max-width:768px){.hero{flex-direction:column;text-align:center}.hero-title{font-size:2.5rem}}
+    </style>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 </head>
 <body>
     <div class="cursor-light"></div>
@@ -121,18 +145,21 @@
                     ><img
                       src="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/jb.png"
                       alt="Thumbnail example 1"
+                      fetchpriority="high"
                   /></a>
                 </div>
                 <div class="hero-image-card hero-image-2">
                    <a href="javascript:void(0);"
                   data-link="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/kk.png"
                     ><img src="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/kk.png" alt="Thumbnail example 2"
+                      fetchpriority="high"
                   /></a>
                 </div>
                 <div class="hero-image-card hero-image-3">
                   <a  href="javascript:void(0);"
                   data-link="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/vs.jpg"
                     ><img src="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/vs.jpg" alt="Thumbnail example 3"
+                      fetchpriority="high"
                   /></a>
               </div>
             </div>
@@ -223,7 +250,7 @@
                     <div class="category-tag gaming">Gaming</div>
                     <div class="thumbnail-image">
                         <div class="thumbnail-placeholder"></div>
-                        <img src="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/2.png" alt="Gaming Thumbnail" loading="lazy" onload="this.classList.add('loaded')">
+                        <img src="https://cdn.jsdelivr.net/gh/mdismailkhanmahi-droid/Axvrenox-wob@main/2.png" alt="Gaming Thumbnail" fetchpriority="high">
                     </div>
                     <div class="thumbnail-info">
                         <h3 class="thumbnail-title">TechGamer Pro</h3>
@@ -1120,187 +1147,68 @@
 
     <!-- Enhanced Mobile Menu JavaScript with React-style State Management -->
     <script>
+        // Optimized mobile menu
+        let isMobileMenuOpen = false;
+        
+        function toggleMobileMenu() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            const menu = document.querySelector('.mobile-menu');
+            const icon = document.querySelector('.mobile-menu-button i');
+            
+            if (menu) {
+                menu.style.transform = isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)';
+                document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+            }
+            if (icon) {
+                icon.className = isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
-            // React-style state management
-            const state = {
-                isMobileMenuOpen: false,
-                isMobileView: window.matchMedia('(max-width: 768px)').matches,
-                isSmallMobileView: window.matchMedia('(max-width: 640px)').matches,
-                deviceType: 'desktop'
-            };
-
-            // React-style setState function
-            function setState(newState) {
-                Object.assign(state, newState);
-                render();
-            }
-
-            // React-style component rendering
-            function render() {
-                const mobileMenuButton = document.querySelector('.mobile-menu-button');
-                const mobileMenuDropdown = document.querySelector('.mobile-menu-dropdown');
-                const desktopNav = document.querySelector('.desktop-nav');
-                const menuIcon = document.getElementById('menu-icon');
-                
-                // Update device type for conditional rendering
-                if (state.isSmallMobileView) {
-                    state.deviceType = 'mobile-small';
-                } else if (state.isMobileView) {
-                    state.deviceType = 'mobile';
-                } else {
-                    state.deviceType = 'desktop';
-                }
-                
-                // Apply responsive classes based on device type
-                document.body.setAttribute('data-device', state.deviceType);
-                
-                // Handle mobile menu visibility
-                if (mobileMenuDropdown) {
-                    if (state.isMobileMenuOpen) {
-                        mobileMenuDropdown.classList.add('active');
-                        mobileMenuDropdown.style.display = 'block';
-                        if (menuIcon) menuIcon.className = 'fas fa-times';
-                    } else {
-                        mobileMenuDropdown.classList.remove('active');
-                        mobileMenuDropdown.style.display = 'none';
-                        if (menuIcon) menuIcon.className = 'fas fa-bars';
-                    }
-                }
-                
-                // Handle responsive navigation
-                if (state.isMobileView) {
-                    if (desktopNav) desktopNav.style.display = 'none';
-                    if (mobileMenuButton) mobileMenuButton.style.display = 'flex';
-                    
-                    // Apply mobile-specific classes
-                    document.querySelectorAll('.sm\\:hidden').forEach(el => el.style.display = 'none');
-                    document.querySelectorAll('.sm\\:block').forEach(el => el.style.display = 'block');
-                    document.querySelectorAll('.sm\\:flex').forEach(el => el.style.display = 'flex');
-                } else {
-                    if (desktopNav) desktopNav.style.display = 'flex';
-                    if (mobileMenuButton) mobileMenuButton.style.display = 'none';
-                    
-                    // Reset mobile menu state when switching to desktop
-                    setState({ isMobileMenuOpen: false });
-                    
-                    // Apply desktop-specific classes
-                    document.querySelectorAll('.lg\\:block').forEach(el => el.style.display = 'block');
-                    document.querySelectorAll('.lg\\:flex').forEach(el => el.style.display = 'flex');
-                }
-            }
-
-            // Event handlers (React-style)
-            const mobileMenuButton = document.querySelector('.mobile-menu-button');
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', function() {
-                    setState({ isMobileMenuOpen: !state.isMobileMenuOpen });
-                });
-            }
-
-            // Close menu when clicking on mobile nav links
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            const menuBtn = document.querySelector('.mobile-menu-button');
+            if (menuBtn) menuBtn.addEventListener('click', toggleMobileMenu);
+            
+            document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
                 link.addEventListener('click', function() {
-                    setState({ isMobileMenuOpen: false });
+                    if (isMobileMenuOpen) toggleMobileMenu();
                 });
             });
-
-            // Media query listeners (similar to React useEffect with window resize)
-            const mediaQueryMobile = window.matchMedia('(max-width: 768px)');
-            const mediaQuerySmall = window.matchMedia('(max-width: 640px)');
-            
-            function handleScreenChange() {
-                setState({
-                    isMobileView: mediaQueryMobile.matches,
-                    isSmallMobileView: mediaQuerySmall.matches
-                });
-            }
-            
-            // Initial render
-            handleScreenChange();
-            render();
-            
-            // Add listeners for screen size changes
-            mediaQueryMobile.addEventListener('change', handleScreenChange);
-            mediaQuerySmall.addEventListener('change', handleScreenChange);
-            
-            // Add to window for debugging
-            window.appState = state;
-            window.setAppState = setState;
         });
     </script>
 
-    <!-- Device-based Particle Optimization -->
+    <!-- Optimized Particle System -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('floating-particles-container');
+        // Ultra-lightweight particle system
+        let particleCount = window.innerWidth <= 640 ? 8 : window.innerWidth <= 768 ? 15 : 25;
+        
+        function initParticles() {
+            const container = document.getElementById('floating-particles-container');
+            if (!container) return;
             
-            // Device detection for optimization
-            function getDeviceType() {
-                const width = window.innerWidth;
-                if (width <= 640) return 'mobile-small';
-                if (width <= 768) return 'mobile';
-                if (width <= 1024) return 'tablet';
-                return 'desktop';
+            // Use DocumentFragment for better performance
+            const fragment = document.createDocumentFragment();
+            
+            for (let i = 0; i < particleCount; i++) {
+                const p = document.createElement('div');
+                p.className = 'floating-particle';
+                p.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation-duration: ${15 + Math.random() * 15}s;
+                    animation-delay: ${Math.random() * 10}s;
+                `;
+                fragment.appendChild(p);
             }
             
-            // Particle count based on device type
-            function getParticleCount() {
-                const deviceType = getDeviceType();
-                switch(deviceType) {
-                    case 'mobile-small': return 15;
-                    case 'mobile': return 25;
-                    case 'tablet': return 40;
-                    default: return 60; // desktop
-                }
-            }
-            
-            // Create particles with device optimization
-            function createParticles() {
-                // Clear existing particles
-                particlesContainer.innerHTML = '';
-                
-                const count = getParticleCount();
-                
-                for (let i = 0; i < count; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'floating-particle';
-                    
-                    // Random positioning
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.top = `${Math.random() * 100}%`;
-                    
-                    // Random size variation based on device
-                    const deviceType = getDeviceType();
-                    const baseSize = deviceType === 'mobile-small' ? 0.2 : 
-                                    deviceType === 'mobile' ? 0.25 : 0.3;
-                    const size = baseSize + (Math.random() * 0.2);
-                    particle.style.width = `${size}rem`;
-                    particle.style.height = `${size}rem`;
-                    
-                    // Random animation duration
-                    const duration = 15 + (Math.random() * 15);
-                    particle.style.animationDuration = `${duration}s`;
-                    
-                    // Random animation delay
-                    const delay = Math.random() * 10;
-                    particle.style.animationDelay = `${delay}s`;
-                    
-                    particlesContainer.appendChild(particle);
-                }
-            }
-            
-            // Initialize particles
-            createParticles();
-            
-            // Recreate particles on resize with debounce
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    createParticles();
-                }, 250);
-            });
-        });
+            container.appendChild(fragment);
+        }
+        
+        // Initialize on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initParticles);
+        } else {
+            initParticles();
+        }
     </script>
     </body>
 </html>
