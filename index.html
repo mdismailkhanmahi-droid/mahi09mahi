@@ -917,18 +917,9 @@
             }
         }
 
-        // Like functionality
+        // Like functionality - Unlimited likes allowed
         function likePost(event, postId) {
             event.stopPropagation(); // Prevent modal from opening
-            
-            // Check if user has already liked this post
-            const hasLiked = localStorage.getItem(`user-liked-${postId}`) === 'true';
-            
-            if (hasLiked) {
-                // Show warning message
-                showWarningMessage('You cannot like more than once');
-                return;
-            }
             
             const likeCountElement = document.getElementById(`like-count-${postId}`);
             const heartIcon = event.currentTarget.querySelector('i');
@@ -942,16 +933,19 @@
             // Update display
             likeCountElement.textContent = currentCount;
             
-            // Save to localStorage
+            // Save to localStorage - only save count, not user liked status
             localStorage.setItem(`likes-${postId}`, currentCount.toString());
-            localStorage.setItem(`user-liked-${postId}`, 'true');
             
-            // Add heart animation and change color permanently
+            // Add heart animation
             heartIcon.style.color = '#ef4444';
             heartIcon.style.transform = 'scale(1.2)';
             
             setTimeout(() => {
                 heartIcon.style.transform = 'scale(1)';
+                // Reset heart color after animation
+                setTimeout(() => {
+                    heartIcon.style.color = '';
+                }, 300);
             }, 200);
         }
 
@@ -994,7 +988,7 @@
             }, 3000);
         }
 
-        // Load like counts and liked status on page load
+        // Load like counts on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Load like counts
             for (let i = 0; i < 9; i++) {
@@ -1002,13 +996,6 @@
                 const likeElement = document.getElementById(`like-count-${i}`);
                 if (likeElement) {
                     likeElement.textContent = savedCount;
-                    
-                    // Check if user has already liked this post and update heart color
-                    const hasLiked = localStorage.getItem(`user-liked-${i}`) === 'true';
-                    if (hasLiked) {
-                        const heartIcon = likeElement.parentElement.querySelector('i');
-                        heartIcon.style.color = '#ef4444';
-                    }
                 }
             }
             
