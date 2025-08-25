@@ -19,8 +19,8 @@
             <div class="orb orb-3"></div>
     </div>
     
-        <!-- Floating Particles -->
-        <div id="floating-particles-container"></div>
+        <!-- Floating Particles - Device Optimized -->
+        <div id="floating-particles-container" class="particles-container"></div>
 
         <!-- Overlay Gradients -->
         <div class="overlay-gradient-1"></div>
@@ -53,8 +53,8 @@
                     </div>
                 </div>
 
-                <!-- Navigation Menu -->
-                <nav class="nav-menu">
+                <!-- Navigation Menu - Desktop -->
+                <nav class="nav-menu desktop-menu">
                     <a href="#services" class="nav-link">
                         services
                         <div class="nav-underline"></div>
@@ -73,6 +73,25 @@
                 <a href="https://wa.me/8801754699899" class="btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button 
+                    id="mobile-menu-button"
+                    class="mobile-menu-button">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="mobile-menu-dropdown">
+            <div class="mobile-menu-content">
+                <a href="#services" class="mobile-nav-link">Services</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="https://wa.me/8801754699899" class="mobile-nav-link whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </div>
@@ -198,7 +217,7 @@
         <div class="container">
             <h2 class="section-title">Top Thumbnails & Posters</h2>
             <p class="section-subtitle">Eye-catching designs that stop the scroll and drive massive engagement</p>
-            <div class="thumbnails-grid">
+            <div class="thumbnails-grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
                 <!-- Row 1 -->
                 <div class="thumbnail-card" onclick="openModal(this.getAttribute('data-link'))" data-link="https://github.com/mdismailkhanmahi-droid/Axvrenox-wob/blob/7a96f63a752655a8f21c5dde5aff8fd0759fa363/2.png">
                     <div class="category-tag gaming">Gaming</div>
@@ -518,48 +537,48 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - Mobile Optimized -->
     <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">Ready to boost your content performance? Get in touch and let's create something amazing together.</p>
+        <div class="container sm:px-4 md:px-6 lg:px-8">
+            <h2 class="section-title sm:text-center">Let's Work Together</h2>
+            <p class="section-subtitle sm:text-center">Ready to boost your content performance? Get in touch and let's create something amazing together.</p>
             
-            <div class="contact-content">
+            <div class="contact-content sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                 <!-- Left Column: Contact Form -->
-                <div class="contact-form-column">
+                <div class="contact-form-column sm:w-full">
                     <div class="contact-form-container">
-                        <h3 class="form-title">Send a Message</h3>
+                        <h3 class="form-title sm:text-center md:text-left">Send a Message</h3>
                         <form id="contact-form" class="contact-form">
-                            <div class="form-group">
+                            <div class="form-group sm:py-2">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                                <input type="text" id="name" name="name" placeholder="Your name" required class="sm:w-full">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group sm:py-2">
                                 <label for="whatsapp">WhatsApp Number</label>
-                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+xxxxxxxxxxxxx" required>
+                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+xxxxxxxxxxxxx" required class="sm:w-full">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group sm:py-2">
                                 <label for="message">Message</label>
-                                <div class="textarea-container">
-                                    <textarea id="message" name="message" placeholder="Tell me about your project..." maxlength="500" required></textarea>
+                                <div class="textarea-container sm:w-full">
+                                    <textarea id="message" name="message" placeholder="Tell me about your project..." maxlength="500" required class="sm:w-full"></textarea>
                                     <div class="char-counter">0/500 characters</div>
                                 </div>
                             </div>
-                            <button type="button" id="send-button" class="send-button">Send Message</button>
+                            <button type="button" id="send-button" class="send-button sm:w-full md:w-auto">Send Message</button>
                         </form>
                     </div>
                 </div>
 
                 <!-- Right Column: Quick Contact & Response Time -->
-                <div class="contact-info-column">
+                <div class="contact-info-column sm:w-full sm:mt-6">
                     <!-- Quick Contact Section -->
                     <div class="quick-contact">
-                        <h3 class="quick-contact-title">Quick Contact</h3>
-                        <p class="quick-contact-subtext">Prefer instant messaging? Reach out through your favorite platform for immediate response.</p>
+                        <h3 class="quick-contact-title sm:text-center md:text-left">Quick Contact</h3>
+                        <p class="quick-contact-subtext sm:text-center md:text-left">Prefer instant messaging? Reach out through your favorite platform for immediate response.</p>
                         
-                        <div class="contact-cards">
+                        <div class="contact-cards sm:flex-col md:flex-row">
                             <!-- WhatsApp Card -->
-                            <a href="https://wa.me/8801754699899" target="_blank" class="contact-card whatsapp-card">
+                            <a href="https://wa.me/8801754699899" target="_blank" class="contact-card whatsapp-card sm:w-full md:w-auto">
                                 <div class="contact-icon whatsapp-icon">
                                     <i class="fab fa-whatsapp"></i>
                                 </div>
@@ -570,7 +589,7 @@
                             </a>
 
                             <!-- Email Card -->
-                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=PNRMKdprppCNspjzkqkRJxtVhgZhTcTTrwplGgpwcbpRbsHtxlvXXzFJrjjsFNWztrnfKbqrvgwccSB" class="contact-card email-card">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=PNRMKdprppCNspjzkqkRJxtVhgZhTcTTrwplGgpwcbpRbsHtxlvXXzFJrjjsFNWztrnfKbqrvgwccSB" class="contact-card email-card sm:w-full md:w-auto sm:mt-4 md:mt-0">
                                 <div class="contact-icon email-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
@@ -601,50 +620,50 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer Section - Mobile Optimized -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-main">
+        <div class="container sm:px-4 md:px-6 lg:px-8">
+            <div class="footer-main sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <!-- Left Column: Company Info -->
-                <div class="footer-column company-info">
+                <div class="footer-column company-info sm:w-full sm:text-center md:text-left">
                     <h3 class="footer-logo"><span class="gradient-pink-purple">AXV</span><span class="gradient-sky-blue">RENOX</span></h3>
                     <p class="footer-subtitle">Thumbnail Designer & Video Editor</p>
                     <p class="footer-description">Creating scroll-stopping thumbnails and engaging video content that drives massive growth for content creators worldwide.</p>
-                    <a href="https://wa.me/8801754699899" target="_blank" class="footer-whatsapp-btn">
+                    <a href="https://wa.me/8801754699899" target="_blank" class="footer-whatsapp-btn sm:w-full md:w-auto">
                         <i class="fab fa-whatsapp"></i>
                         WhatsApp
                     </a>
                 </div>
 
                 <!-- Middle Column: Quick Links -->
-                <div class="footer-column quick-links">
+                <div class="footer-column quick-links sm:w-full sm:text-center md:text-left sm:mt-6 md:mt-0">
                     <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#top-thumbnails">Thumbnails</a></li>
-                        <li><a href="#video-demos">Video Demos</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <ul class="footer-links sm:flex sm:flex-wrap sm:justify-center md:block">
+                        <li class="sm:px-2 md:px-0"><a href="#top-thumbnails">Thumbnails</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#video-demos">Video Demos</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#services">Services</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#about">About</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Right Column: Services -->
-                <div class="footer-column services-links">
+                <div class="footer-column services-links sm:w-full sm:text-center md:text-left sm:mt-6 md:mt-0">
                     <h4 class="footer-heading">Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Thumbnail Design</a></li>
-                        <li><a href="#">Short-Form Editing</a></li>
-                        <li><a href="#">Long-Form Editing</a></li>
-                        <li><a href="#">Color Grading</a></li>
-                        <li><a href="#">Motion Graphics</a></li>
-                        <li><a href="#">Brand Identity</a></li>
+                    <ul class="footer-links sm:flex sm:flex-wrap sm:justify-center md:block">
+                        <li class="sm:px-2 md:px-0"><a href="#">Thumbnail Design</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#">Short-Form Editing</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#">Long-Form Editing</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#">Color Grading</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#">Motion Graphics</a></li>
+                        <li class="sm:px-2 md:px-0"><a href="#">Brand Identity</a></li>
                     </ul>
                 </div>
 
                 <!-- Far Right Column: Contact Info -->
-                <div class="footer-column contact-info">
+                <div class="footer-column contact-info sm:w-full sm:text-center md:text-left sm:mt-6 md:mt-0">
                     <h4 class="footer-heading">Contact Info</h4>
-                    <div class="contact-info-items">
+                    <div class="contact-info-items sm:flex sm:flex-col sm:items-center md:items-start">
                         <a href="https://wa.me/8801754699899" target="_blank" class="contact-item">
                             <div class="contact-icon whatsapp-icon">
                                 <i class="fab fa-whatsapp"></i>
@@ -674,7 +693,7 @@
             </div>
 
             <!-- Footer Bottom Line -->
-            <div class="footer-bottom">
+            <div class="footer-bottom sm:flex-col md:flex-row sm:text-center md:text-left">
                 <div class="footer-copyright">
                     &copy; 2024 Axvrenox. All rights reserved. | Crafted with &hearts; in Bangladesh
                 </div>
@@ -1127,5 +1146,189 @@
         });
     </script>
 
+    <!-- Enhanced Mobile Menu JavaScript with React-style State Management -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // React-style state management
+            const state = {
+                isMobileMenuOpen: false,
+                isMobileView: window.matchMedia('(max-width: 768px)').matches,
+                isSmallMobileView: window.matchMedia('(max-width: 640px)').matches,
+                deviceType: 'desktop'
+            };
+
+            // React-style setState function
+            function setState(newState) {
+                Object.assign(state, newState);
+                render();
+            }
+
+            // React-style component rendering
+            function render() {
+                const mobileMenuButton = document.querySelector('.mobile-menu-button');
+                const mobileMenuDropdown = document.querySelector('.mobile-menu-dropdown');
+                const desktopNav = document.querySelector('.desktop-nav');
+                const menuIcon = document.getElementById('menu-icon');
+                
+                // Update device type for conditional rendering
+                if (state.isSmallMobileView) {
+                    state.deviceType = 'mobile-small';
+                } else if (state.isMobileView) {
+                    state.deviceType = 'mobile';
+                } else {
+                    state.deviceType = 'desktop';
+                }
+                
+                // Apply responsive classes based on device type
+                document.body.setAttribute('data-device', state.deviceType);
+                
+                // Handle mobile menu visibility
+                if (mobileMenuDropdown) {
+                    if (state.isMobileMenuOpen) {
+                        mobileMenuDropdown.classList.add('active');
+                        mobileMenuDropdown.style.display = 'block';
+                        if (menuIcon) menuIcon.className = 'fas fa-times';
+                    } else {
+                        mobileMenuDropdown.classList.remove('active');
+                        mobileMenuDropdown.style.display = 'none';
+                        if (menuIcon) menuIcon.className = 'fas fa-bars';
+                    }
+                }
+                
+                // Handle responsive navigation
+                if (state.isMobileView) {
+                    if (desktopNav) desktopNav.style.display = 'none';
+                    if (mobileMenuButton) mobileMenuButton.style.display = 'flex';
+                    
+                    // Apply mobile-specific classes
+                    document.querySelectorAll('.sm\\:hidden').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.sm\\:block').forEach(el => el.style.display = 'block');
+                    document.querySelectorAll('.sm\\:flex').forEach(el => el.style.display = 'flex');
+                } else {
+                    if (desktopNav) desktopNav.style.display = 'flex';
+                    if (mobileMenuButton) mobileMenuButton.style.display = 'none';
+                    
+                    // Reset mobile menu state when switching to desktop
+                    setState({ isMobileMenuOpen: false });
+                    
+                    // Apply desktop-specific classes
+                    document.querySelectorAll('.lg\\:block').forEach(el => el.style.display = 'block');
+                    document.querySelectorAll('.lg\\:flex').forEach(el => el.style.display = 'flex');
+                }
+            }
+
+            // Event handlers (React-style)
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    setState({ isMobileMenuOpen: !state.isMobileMenuOpen });
+                });
+            }
+
+            // Close menu when clicking on mobile nav links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    setState({ isMobileMenuOpen: false });
+                });
+            });
+
+            // Media query listeners (similar to React useEffect with window resize)
+            const mediaQueryMobile = window.matchMedia('(max-width: 768px)');
+            const mediaQuerySmall = window.matchMedia('(max-width: 640px)');
+            
+            function handleScreenChange() {
+                setState({
+                    isMobileView: mediaQueryMobile.matches,
+                    isSmallMobileView: mediaQuerySmall.matches
+                });
+            }
+            
+            // Initial render
+            handleScreenChange();
+            render();
+            
+            // Add listeners for screen size changes
+            mediaQueryMobile.addEventListener('change', handleScreenChange);
+            mediaQuerySmall.addEventListener('change', handleScreenChange);
+            
+            // Add to window for debugging
+            window.appState = state;
+            window.setAppState = setState;
+        });
+    </script>
+
+    <!-- Device-based Particle Optimization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('floating-particles-container');
+            
+            // Device detection for optimization
+            function getDeviceType() {
+                const width = window.innerWidth;
+                if (width <= 640) return 'mobile-small';
+                if (width <= 768) return 'mobile';
+                if (width <= 1024) return 'tablet';
+                return 'desktop';
+            }
+            
+            // Particle count based on device type
+            function getParticleCount() {
+                const deviceType = getDeviceType();
+                switch(deviceType) {
+                    case 'mobile-small': return 15;
+                    case 'mobile': return 25;
+                    case 'tablet': return 40;
+                    default: return 60; // desktop
+                }
+            }
+            
+            // Create particles with device optimization
+            function createParticles() {
+                // Clear existing particles
+                particlesContainer.innerHTML = '';
+                
+                const count = getParticleCount();
+                
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'floating-particle';
+                    
+                    // Random positioning
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random size variation based on device
+                    const deviceType = getDeviceType();
+                    const baseSize = deviceType === 'mobile-small' ? 0.2 : 
+                                    deviceType === 'mobile' ? 0.25 : 0.3;
+                    const size = baseSize + (Math.random() * 0.2);
+                    particle.style.width = `${size}rem`;
+                    particle.style.height = `${size}rem`;
+                    
+                    // Random animation duration
+                    const duration = 15 + (Math.random() * 15);
+                    particle.style.animationDuration = `${duration}s`;
+                    
+                    // Random animation delay
+                    const delay = Math.random() * 10;
+                    particle.style.animationDelay = `${delay}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            // Initialize particles
+            createParticles();
+            
+            // Recreate particles on resize with debounce
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    createParticles();
+                }, 250);
+            });
+        });
+    </script>
     </body>
 </html>
