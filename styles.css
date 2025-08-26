@@ -88,9 +88,11 @@ body {
 
 .orb {
     position: absolute;
-    border-radius: 9999px; /* rounded-full */
-    filter: blur(64px); /* blur-3xl */
+    border-radius: 50%;
+    filter: blur(64px);
     animation: float-orb 30s infinite ease-in-out;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .orb-1 {
@@ -121,26 +123,27 @@ body {
 }
 
 @keyframes float-orb {
-    0%, 100% { transform: translateY(0) translateX(0) scale(1); }
-    25% { transform: translateY(-40px) translateX(20px) scale(1.1); }
-    50% { transform: translateY(20px) translateX(-30px) scale(0.9); }
-    75% { transform: translateY(-30px) translateX(40px) scale(1.05); }
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    25% { transform: translate3d(20px, -40px, 0) scale(1.1); }
+    50% { transform: translate3d(-30px, 20px, 0) scale(0.9); }
+    75% { transform: translate3d(40px, -30px, 0) scale(1.05); }
 }
 
 .floating-particle {
     position: absolute;
-    width: 0.3rem; /* w-1.5 */
-    height: 0.3rem; /* h-1.5 */
-    background-image: linear-gradient(to right, #c084fc, #22d3ee);
-    border-radius: 9999px; /* rounded-full */
-        opacity: 0;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: linear-gradient(to right, #c084fc, #22d3ee);
+    border-radius: 50%;
+    opacity: 0;
     animation: float-particle 20s infinite ease-in-out;
-    box-shadow: 0 0 8px rgba(192, 132, 252, 0.5);
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 @keyframes float-particle {
     0% {
-        transform: translateY(0) translateX(0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
         opacity: 0;
     }
     10% {
@@ -150,7 +153,7 @@ body {
         opacity: 0.7;
     }
     100% {
-        transform: translateY(-100vh) translateX(10vw) scale(1.5);
+        transform: translate3d(10vw, -100vh, 0) scale(1.5);
         opacity: 0;
     }
 }
@@ -2740,13 +2743,14 @@ body {
 }
 
 .stat-card {
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     padding: 25px 20px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .stat-number {
@@ -2986,6 +2990,11 @@ body {
     color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    pointer-events: auto;
+}
+
+.contact-card * {
+    pointer-events: none;
 }
 
 .contact-card:hover {
