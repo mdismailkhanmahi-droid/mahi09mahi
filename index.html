@@ -428,7 +428,7 @@
                         <li><i class="fas fa-circle"></i> Fast Delivery</li>
                         <li><i class="fas fa-circle"></i> Unlimited Revisions</li>
                     </ul>
-                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Thumbnail Design service starting at $15. Please provide more details." target="_blank" class="service-price whatsapp-price-btn">
+                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Thumbnail Design service starting at $3. Please confirm my order." target="_blank" class="service-price whatsapp-price-btn">
                         Starting at $3
                     </a>
                 </div>
@@ -446,7 +446,7 @@
                         <li><i class="fas fa-circle"></i> Captions & Text</li>
                         <li><i class="fas fa-circle"></i> Quick Turnaround</li>
                     </ul>
-                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Short-Form Editing service starting at $25. Please provide more details." target="_blank" class="service-price whatsapp-price-btn">
+                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Short-Form Editing service starting at $6. Please confirm my order." target="_blank" class="service-price whatsapp-price-btn">
                         Starting at $6
                     </a>
                 </div>
@@ -464,7 +464,7 @@
                         <li><i class="fas fa-circle"></i> Motion Graphics</li>
                         <li><i class="fas fa-circle"></i> Full Production</li>
                     </ul>
-                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Long-Form Editing service starting at $50. Please provide more details." target="_blank" class="service-price whatsapp-price-btn">
+                    <a href="https://wa.me/8801754699899?text=Hi! I'm interested in your Long-Form Editing service starting at $10. Please confirm my order." target="_blank" class="service-price whatsapp-price-btn">
                         Starting at $10
                     </a>
                 </div>
@@ -500,7 +500,6 @@
                     <p class="about-paragraph">I'm a passionate digital creator and developer specializing in web development, app development, and creative content solutions. With 1+ years of experience, I've helped businesses and content creators achieve remarkable growth through innovative digital solutions.</p>
                     <p class="about-paragraph">My expertise spans across custom website and mobile app development, creating responsive platforms that drive real results. I also specialize in designing eye-catching thumbnails, professional posters, and dynamic video editing that stops the scroll and converts viewers into loyal customers.</p>
                     <p class="about-paragraph">My mission is simple: transform your ideas into digital masterpieces that not only look stunning but perform exceptionally. Every project is crafted with precision, creativity, and a deep understanding of what works in today's competitive digital landscape. Ready to elevate your digital presence? Let's create something extraordinary together.</p>
-
                     <!-- Stats Section -->
                     <div class="stats-section">
                         <div class="stats-grid">
@@ -602,7 +601,9 @@
                             </a>
 
                             <!-- Email Card -->
-                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=PNRMKdprppCNspjzkqkRJxtVhgZhTcTTrwplGgpwcbpRbsHtxlvXXzFJrjjsFNWztrnfKbqrvgwccSB" class="contact-card email-card sm:w-full md:w-auto sm:mt-4 md:mt-0">
+                            <a href="mailto:axvrenox@gmail.com" 
+                               onclick="window.location.href='mailto:axvrenox@gmail.com'; return true;"
+                               class="contact-card email-card sm:w-full md:w-auto sm:mt-4 md:mt-0">
                                 <div class="contact-icon email-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
@@ -1169,11 +1170,21 @@
             const menuBtn = document.querySelector('.mobile-menu-button');
             if (menuBtn) menuBtn.addEventListener('click', toggleMobileMenu);
             
-            document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-                link.addEventListener('click', function() {
+            // Close mobile menu when clicking nav links
+            const navLinks = document.querySelectorAll('.mobile-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
                     if (isMobileMenuOpen) toggleMobileMenu();
                 });
             });
+
+            // Force email functionality
+            const emailCard = document.querySelector('.email-card');
+            if (emailCard) {
+                emailCard.addEventListener('click', function(e) {
+                    window.location.href = 'mailto:axvrenox@gmail.com';
+                });
+            }
         });
     </script>
 
